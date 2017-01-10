@@ -1,0 +1,51 @@
+body {
+    padding: 70px 50px 50px 50px;
+    font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+/*
+**** BOOTSTRAP ****
+*/
+.container-fluid {
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    left: 0;
+}
+
+.row {
+    height: 100%;
+}
+
+.column-container {
+    padding: 0 20px;
+    height: 100%;
+}
+.column-container .panel{
+    height: 100%;
+}
+
+.column {
+    height: 100%;
+}
+
+/*
+**** POST-IT ****
+*/
+.post-it {
+    border: solid black 1px;
+    margin: 10px;
+    cursor: move;
+}
+
+.header-column {
+    font-size: 29px;
+    text-transform: capitalize;
+}
+
+.gu-mirror {
+    margin: 10px;
+    padding: 10px;
+    transition: opacity 0.4s ease-in-out;
+    text-align: center;
+}

@@ -1,0 +1,22 @@
+{
+  "name": "KanbanJS",
+  "description": "",
+  "main": "",
+  "authors": [
+    "Geoffrey <geoffrey.pruvost@hotmail.com>"
+  ],
+  "license": "GPL-3.0",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "public/bower_components/",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.7",
+    "dragula.js": "dragula#^3.7.2"
+  }
+}
