@@ -21,7 +21,7 @@ body {
     padding: 0 20px;
     height: 100%;
 }
-.column-container .panel{
+.column-container .panel-primary{
     height: 100%;
 }
 
@@ -33,9 +33,11 @@ body {
 **** POST-IT ****
 */
 .post-it {
-    border: solid black 1px;
     margin: 10px;
     cursor: move;
+}
+.post-it h1{
+    margin: 0;
 }
 
 .header-column {
