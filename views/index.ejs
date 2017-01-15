@@ -57,12 +57,24 @@
             <div class="panel panel-primary">
                 <div class="header-column panel-heading">Backlog</div>
                 <div id="backlog" class="panel-body column">
+
+                    <%
+                    for (var i = 0; i < posts.length; i++){
+                    if (posts[i].type == "backlog"){
+                    %>
                     <div class="panel panel-info post-it">
-                        <h1 class="panel-heading">Example 1</h1>
+                        <h1 class="panel-heading">
+                            <%= posts[i].title; %>
+                        </h1>
                         <div class="panel-body post-it-container">
-                            doing example
+                            <%= posts[i].content; %>
                         </div>
+
                     </div>
+                    <%
+                    }}
+                    %>
+
                 </div>
             </div>
 
@@ -73,12 +85,24 @@
             <div class="panel panel-primary">
                 <div class="header-column panel-heading">todo</div>
                 <div id="todo" class="panel-body column">
+
+                    <%
+                    for (var i = 0; i < posts.length; i++){
+                    if (posts[i].type == "todo"){
+                    %>
                     <div class="panel panel-info post-it">
-                        <h1 class="panel-heading">Example 2</h1>
+                        <h1 class="panel-heading">
+                            <%= posts[i].title; %>
+                        </h1>
                         <div class="panel-body post-it-container">
-                            doing example
+                            <%= posts[i].content; %>
                         </div>
+
                     </div>
+                    <%
+                    }}
+                    %>
+
                 </div>
             </div>
         </div>
@@ -88,19 +112,22 @@
                 <div class="panel-heading header-column ">doing</div>
                 <div id="doing" class="panel-body column">
 
+                    <%
+                    for (var i = 0; i < posts.length; i++){
+                    if (posts[i].type == "doing"){
+                    %>
                     <div class="panel panel-info post-it">
-                        <h1 class="panel-heading">Example 3</h1>
+                        <h1 class="panel-heading">
+                            <%= posts[i].title; %>
+                        </h1>
                         <div class="panel-body post-it-container">
-                            doing example
+                            <%= posts[i].content; %>
                         </div>
-                    </div>
 
-                    <div class="panel panel-info post-it">
-                        <h1 class="panel-heading">Example 4</h1>
-                        <div class="panel-body post-it-container">
-                            doing example
-                        </div>
                     </div>
+                    <%
+                    }}
+                    %>
 
                 </div>
             </div>
