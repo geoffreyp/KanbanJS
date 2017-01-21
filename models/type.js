@@ -1,29 +1,25 @@
 "use strict";
 
 module.exports = function (sequelize, DataTypes) {
-    var Postit = sequelize.define('postit', {
+    var Type = sequelize.define('type', {
         id: {
             type: DataTypes.INTEGER,
             autoIncrement:true,
             primaryKey: true
         },
-        title: {
+        code: {
             type: DataTypes.STRING,
             allowNull: false,
         },
-        content: {
+        key: {
             type: DataTypes.STRING,
             allowNull: false,
         },
-        author: {
-            type: DataTypes.INTEGER,
+        value: {
+            type: DataTypes.STRING,
             allowNull: false,
-        },
-        type: {
-            type: DataTypes.INTEGER,
-                allowNull: false,
         }
     });
 
-    return Postit;
+    return Type;
 };
