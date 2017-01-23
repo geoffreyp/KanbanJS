@@ -4,7 +4,7 @@ module.exports = function (sequelize, DataTypes) {
     var User = sequelize.define('user', {
         id: {
             type: DataTypes.INTEGER,
-            autoIncrement:true,
+            autoIncrement: true,
             primaryKey: true
         },
         name: {
@@ -15,7 +15,16 @@ module.exports = function (sequelize, DataTypes) {
             type: DataTypes.STRING,
             allowNull: true,
         }
+    },{
+        classMethods: {
+            associate: function (models) {
+                User.hasMany(models.postit, {
+                    foreignKey: {
+                        allowNull: false
+                    }
+                })
+            }
+        }
     });
-
     return User;
 };
