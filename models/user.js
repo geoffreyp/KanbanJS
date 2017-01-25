@@ -11,19 +11,13 @@ module.exports = function (sequelize, DataTypes) {
             type: DataTypes.STRING,
             allowNull: false,
         },
+        password: {
+            type: DataTypes.STRING,
+            allowNull: false,
+        },
         role: {
             type: DataTypes.STRING,
             allowNull: true,
-        }
-    },{
-        classMethods: {
-            associate: function (models) {
-                User.hasMany(models.postit, {
-                    foreignKey: {
-                        allowNull: false
-                    }
-                })
-            }
         }
     });
     return User;

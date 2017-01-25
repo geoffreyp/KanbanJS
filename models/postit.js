@@ -4,7 +4,7 @@ module.exports = function (sequelize, DataTypes) {
     var Postit = sequelize.define('postit', {
         id: {
             type: DataTypes.INTEGER,
-            autoIncrement:true,
+            autoIncrement: true,
             primaryKey: true
         },
         title: {
@@ -16,8 +16,19 @@ module.exports = function (sequelize, DataTypes) {
             allowNull: false,
         },
         type: {
-            type: DataTypes.INTEGER,
-                allowNull: false,
+            type: DataTypes.STRING,
+            allowNull: false,
+            defaultValue: 'backlog'
+        }
+    },{
+        classMethods: {
+            associate: function (models) {
+                Postit.belongsTo(models.user, {
+                    foreignKey: {
+                        allowNull: false
+                    }
+                })
+            }
         }
     });
 
