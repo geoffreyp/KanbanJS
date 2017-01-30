@@ -1,0 +1,17 @@
+<script src="bower_components/jquery/dist/jquery.min.js"></script>
+<script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="bower_components/dragula.js/dist/dragula.min.js"></script>
+<script type="application/javascript">
+    jQuery(document).ready(function () {
+        dragula([document.getElementById("backlog"), document.getElementById("todo"), document.getElementById("doing")]);
+        jQuery('.button-new-postit').click(function () {
+            jQuery('.back-add-postit').fadeIn();
+            jQuery('#login-modal').fadeIn();
+        });
+
+        jQuery('#form-add-postit-cancel, #form-add-postit-valid').click(function () {
+            jQuery('.back-add-postit').fadeOut();
+            jQuery('#login-modal').fadeOut();
+        });
+    });
+</script>

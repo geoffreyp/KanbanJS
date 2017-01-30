@@ -1,0 +1,43 @@
+<div class="back-add-postit"></div>
+<div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="gridSystemModalLabel" id= "login-modal">
+    <div id="addPostitDialog" class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="gridSystemModalLabel">New Postit</h4>
+            </div>
+            <div class="modal-body">
+                <form class="form-horizontal" id="form-add-postit" method="post" action="/newpostit">
+                    <fieldset>
+
+                        <div class="form-group">
+                            <label class="col-md-8 col-md-offset-2" for="form-add-postit-title">Title</label>
+                            <div class="col-md-8 col-md-offset-2">
+                                <input id="form-add-postit-title" name="postit[title]" type="text" placeholder="" class="form-control input-md" required="">
+
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-md-8 col-md-offset-2" for="form-add-postit-content">Content</label>
+                            <div class="col-md-8 col-md-offset-2">
+                                <textarea class="form-control" id="form-add-postit-content" name="postit[content]"></textarea>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-md-8 col-md-offset-2" for="form-add-postit-valid"></label>
+                            <div class="col-md-8 col-md-offset-2">
+                                <button id="form-add-postit-valid" name="form-add-postit-valid" class="btn btn-success">Create</button>
+                                <button id="form-add-postit-cancel" name="form-add-postit-cancel" class="btn btn-danger" data-dismiss="modal" aria-label="Close">Cancel</button>
+                            </div>
+                        </div>
+
+                    </fieldset>
+                </form>
+
+            </div>
+
+        </div>
+
+    </div><!-- /.modal-content -->
+</div><!-- /.modal-dialog -->
