@@ -51,3 +51,30 @@ body {
     transition: opacity 0.4s ease-in-out;
     text-align: center;
 }
+
+/*
+    Lightbox
+*/
+
+.modal-backdrop{
+    display: none;
+}
+
+#login-modal{
+    top: 20%;
+}
+
+#addPostitDialog{
+    height: 300px;
+    width: 60%;
+}
+
+.back-add-postit{
+    position: absolute;
+    left: 0;
+    top:0;
+    height: 100%;
+    width: 100%;
+    background-color: #1b6d85;
+    display: none;
+}
