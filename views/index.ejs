@@ -7,7 +7,7 @@
 
     <div class="row">
 
-        <div class="col-lg-4 text-center column-container">
+        <div class="col-lg-3 text-center column-container">
             <div class="panel panel-primary">
                 <div class="header-column panel-heading">Backlog</div>
                 <div id="backlog" class="panel-body column">
@@ -24,7 +24,7 @@
             </div>
         </div>
 
-        <div class="col-lg-4 text-center column-container">
+        <div class="col-lg-3 text-center column-container">
             <div class="panel panel-primary">
                 <div class="header-column panel-heading">todo</div>
                 <div id="todo" class="panel-body column">
@@ -41,7 +41,7 @@
             </div>
         </div>
 
-        <div class="col-lg-4 text-center column-container">
+        <div class="col-lg-3 text-center column-container">
             <div class="panel panel-primary">
                 <div class="panel-heading header-column ">doing</div>
                 <div id="doing" class="panel-body column">
@@ -57,6 +57,24 @@
                 </div>
             </div>
         </div>
+
+        <div class="col-lg-3 text-center column-container">
+            <div class="panel panel-primary">
+                <div class="header-column panel-heading">Done</div>
+                <div id="todo" class="panel-body column">
+                    <%
+                    posts.forEach(function(postit){
+                    if (postit.dataValues.type == "done"){
+                    %>
+                    <% include partials/postit.ejs %>
+                    <%
+                    }
+                    });
+                    %>
+                </div>
+            </div>
+        </div>
+
     </div>
 
 </div>
