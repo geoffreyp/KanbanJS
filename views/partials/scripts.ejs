@@ -1,9 +1,32 @@
 <script src="bower_components/jquery/dist/jquery.min.js"></script>
 <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 <script src="bower_components/dragula.js/dist/dragula.min.js"></script>
+<script src="/socket.io/socket.io.js"></script>
 <script type="application/javascript">
     jQuery(document).ready(function () {
-        dragula([document.getElementById("backlog"), document.getElementById("todo"), document.getElementById("doing")]);
+        /*
+         SOCKET IO
+        */
+        var socket = io.connect('http://localhost:3000');
+
+
+        /*
+         DRAGULA
+         */
+        var drake = dragula([
+            document.getElementById("backlog"),
+            document.getElementById("todo"),
+            document.getElementById("doing")
+        ]);
+
+        drake.on('drop', function (el, target, source) {
+            socket.emit('change_column', {id:jQuery(el).attr("id"),source:jQuery(source).attr("id"), target:jQuery(target).attr("id")});
+        });
+
+
+        /*
+         LIGHTBOX TO ADD POSTIT
+         */
         jQuery('.button-new-postit').click(function () {
             jQuery('.back-add-postit').fadeIn();
             jQuery('#login-modal').fadeIn();
