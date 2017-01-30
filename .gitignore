@@ -46,3 +46,6 @@ gen
 
 # Bower
 public/bower_components/*
+
+# Config
+config/config.json
