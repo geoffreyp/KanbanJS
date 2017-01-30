@@ -12,35 +12,31 @@
                 <div class="header-column panel-heading">Backlog</div>
                 <div id="backlog" class="panel-body column">
                     <%
-                    for (var i = 0; i < posts.length; i++){
-                    if (posts[i].dataValues.type == "backlog"){
+                    posts.forEach(function(postit){
+                    if (postit.dataValues.type == "backlog"){
                     %>
-                    <div class="panel panel-info post-it">
-                        <h1 class="panel-heading">
-                            <%= posts[i].dataValues.title; %>
-                        </h1>
-                        <div class="panel-body post-it-container">
-                            <%= posts[i].dataValues.content; %>
-                        </div>
-
-                    </div>
+                    <% include partials/postit.ejs %>
                     <%
-                    }}
+                    }
+                    });
                     %>
-
                 </div>
             </div>
-
         </div>
-
 
         <div class="col-lg-4 text-center column-container">
             <div class="panel panel-primary">
                 <div class="header-column panel-heading">todo</div>
                 <div id="todo" class="panel-body column">
-
-
-
+                    <%
+                    posts.forEach(function(postit){
+                    if (postit.dataValues.type == "todo"){
+                    %>
+                    <% include partials/postit.ejs %>
+                    <%
+                    }
+                    });
+                    %>
                 </div>
             </div>
         </div>
@@ -49,10 +45,15 @@
             <div class="panel panel-primary">
                 <div class="panel-heading header-column ">doing</div>
                 <div id="doing" class="panel-body column">
-
-
-
-
+                    <%
+                    posts.forEach(function(postit){
+                    if (postit.dataValues.type == "doing"){
+                    %>
+                    <% include partials/postit.ejs %>
+                    <%
+                    }
+                    });
+                    %>
                 </div>
             </div>
         </div>
