@@ -1,4 +1,5 @@
 var express = require('express');
+var session = require('express-session')
 var path = require('path');
 var favicon = require('serve-favicon');
 var logger = require('morgan');
@@ -9,6 +10,13 @@ var routes = require('./routes/index');
 var users = require('./routes/users');
 
 var app = express();
+
+// init session
+app.use(session({
+  secret: 'keyboard cat secret k@b@bJ5',
+  resave: false,
+  saveUninitialized: true
+}));
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
