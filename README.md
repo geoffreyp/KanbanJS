@@ -1,16 +1,17 @@
 # Kanban JS
 
-## How install KanbanJS ?
-Clone repository :
+## How to install KanbanJS ?
+### Get the project :
 
 ``` git clone git@github.com:geoffreyp/KanbanJS.git ```
 
-Install npm and bower dependencies :
+### Install dependencies :
 
 ``` npm install ```
 
 ``` bower install ```
 
+### Configure database :
 Create config/config.json with correct database value:
 
 ```json
@@ -37,9 +38,12 @@ Create config/config.json with correct database value:
     "dialect": "mysql"
   }
 }
-
  ```
+The ORM used is Sequelize, it allow you to use a lot of
+SQL dialect (mysql, postgreSQL, SQLite, mongodb, ...).
 
-Then start the project :
+### Start the project :
 
 ``` npm start ```
+
+The first time, sequelize create all tables with their relations.
