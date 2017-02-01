@@ -20,7 +20,7 @@
         ]);
 
         drake.on('drop', function (el, target, source) {
-            socket.emit('change_column', {id:jQuery(el).attr("id"),source:jQuery(source).attr("id"), target:jQuery(target).attr("id")});
+            socket.emit('change_column', {id:jQuery(el).attr("id").split('postit')[1],source:jQuery(source).attr("id"), target:jQuery(target).attr("id")});
         });
 
 
