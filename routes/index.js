@@ -4,12 +4,19 @@ var models = require('../models');
 
 /* GET home page. */
 router.get('/', function (req, res) {
-    models.postit.findAll({limit: 10}).then(function (postits) {
-        console.log();
-        res.render('index', {
-            posts: postits
-        })
-    });
+
+    if(req.session.isconnect === "connect"){
+        models.postit.findAll({limit: 10}).then(function (postits) {
+            console.log();
+            res.render('index', {
+                posts: postits
+            })
+        });
+    }else{
+        res.render('login');
+    }
+
+
 });
 
 router.post('/newpostit', function (req, res) {
@@ -19,6 +26,11 @@ router.post('/newpostit', function (req, res) {
         userId:1
     });
     res.redirect('/');
+});
+
+
+router.post('/connection', function (req, res) {
+
 });
 
 module.exports = router;
