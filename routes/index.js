@@ -30,7 +30,15 @@ router.post('/newpostit', function (req, res) {
 
 
 router.post('/connection', function (req, res) {
-
+    models.user.findAll({where: {name: req.body.login, password: req.body.password}}).then(function (user) {
+        if (user.length > 0) {
+            req.session.isconnect = "connect";
+        } else {
+            req.session.isconnect = "bad_login";
+        }
+    }).then(function () {
+        res.redirect('/');
+    });
 });
 
 module.exports = router;
