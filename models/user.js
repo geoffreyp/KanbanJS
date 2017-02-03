@@ -9,15 +9,15 @@ module.exports = function (sequelize, DataTypes) {
         },
         name: {
             type: DataTypes.STRING,
-            allowNull: false,
+            allowNull: false
         },
         password: {
             type: DataTypes.STRING,
-            allowNull: false,
+            allowNull: false
         },
         role: {
             type: DataTypes.STRING,
-            allowNull: true,
+            allowNull: true
         }
     });
     return User;
