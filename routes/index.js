@@ -2,9 +2,7 @@ var express = require('express');
 var router = express.Router();
 var models = require('../models');
 
-/* GET home page. */
 router.get('/', function (req, res) {
-
     if (req.session.isconnect === "connect") {
         models.postit.findAll({limit: 10}).then(function (postits) {
             console.log();
@@ -15,9 +13,26 @@ router.get('/', function (req, res) {
     } else {
         res.render('login');
     }
-
-
 });
+
+
+router.get('/signup', function (req, res) {
+    res.render('signup');
+});
+
+
+router.post('/signup', function (req, res) {
+    if (req.body.password1 === req.body.password2) {
+        models.user.create({
+            name: req.body.login,
+            password: req.body.password1
+        });
+        res.redirect('/');
+    }else{
+        res.redirect('/signup');
+    }
+});
+
 
 router.post('/newpostit', function (req, res) {
     models.postit.create({
@@ -43,7 +58,7 @@ router.post('/connection', function (req, res) {
 
 
 router.post('/disconnection', function (req, res) {
-    req.session.destroy(function(err) {
+    req.session.destroy(function (err) {
         res.redirect('/');
     })
 });

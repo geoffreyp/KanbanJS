@@ -4,44 +4,45 @@
 <div class="container-fluid">
     <div class="row-fluid">
         <div class="col-md-offset-4 col-md-4" id="box">
-            <h2>Login</h2>
+            <h2>Sign Up</h2>
 
             <hr>
 
-            <form class="form-horizontal" action="/connection" method="post" id="contact_form">
+            <form class="form-horizontal" action="/signup" method="post" id="contact_form">
                 <fieldset>
                     <div class="form-group">
                         <div class="col-md-12">
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                                <input name="login" placeholder="Username" class="form-control" type="text">
+                                <input name="login" placeholder="Username" class="form-control" type="text" required>
                             </div>
                         </div>
                     </div>
-
 
                     <div class="form-group">
                         <div class="col-md-12">
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-                                <input name="password" placeholder="Password" class="form-control" type="password">
+                                <input name="password1" placeholder="Password" class="form-control" type="password" required>
                             </div>
                         </div>
-                        <div class="form-group">
-                            <div class="col-md-12">
-                                <div class="input-group group-signup">
-                                    <span><i class="glyphicon glyphicon-arrow-right"></i></span>
-                                    <a class="button-go-to-sigup" href="signup">Sign up</a>
-                                </div>
-                            </div>
-                        </div>
-
                     </div>
-
 
                     <div class="form-group">
                         <div class="col-md-12">
-                            <button type="submit" class="btn btn-md btn-success button-login">Login</button>
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                                <input name="password2" placeholder="Confirm Password" class="form-control" type="password" required>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-md-6">
+                            <a href="/" type="submit" class="btn btn-md btn-warning button-sigup">Return</a>
+                        </div>
+                        <div class="col-md-6">
+                            <button type="submit" class="btn btn-md btn-success button-sigup">Sign Up</button>
                         </div>
                     </div>
 
