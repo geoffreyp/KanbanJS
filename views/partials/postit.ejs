@@ -1,7 +1,7 @@
 <div class="panel panel-info post-it" id="postit<%= postit.dataValues.id; %>">
-    <h1 class="panel-heading">
-        <%= postit.dataValues.title; %>
-    </h1>
+    <div class="panel-heading">
+        <h3 class="panel-title"><%= postit.dataValues.title; %></h3>
+    </div>
     <div class="panel-body post-it-container">
         <%= postit.dataValues.content; %>
     </div>
