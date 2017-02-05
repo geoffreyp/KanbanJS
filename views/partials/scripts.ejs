@@ -16,7 +16,8 @@
         var drake = dragula([
             document.getElementById("backlog"),
             document.getElementById("todo"),
-            document.getElementById("doing")
+            document.getElementById("doing"),
+            document.getElementById("done")
         ]);
 
         drake.on('drop', function (el, target, source) {
@@ -33,6 +34,12 @@
         });
 
         jQuery('#form-add-postit-cancel, #form-add-postit-valid').click(function () {
+            jQuery('.back-add-postit').fadeOut();
+            jQuery('#login-modal').fadeOut();
+        });
+
+        //Listening event on hidden property of login-modal (If user click outside of login-modal, Kanban content is not recover)
+        jQuery('#login-modal').on('hidden.bs.modal', function () {
             jQuery('.back-add-postit').fadeOut();
             jQuery('#login-modal').fadeOut();
         });
