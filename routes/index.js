@@ -28,7 +28,7 @@ router.post('/signup', function (req, res) {
             password: req.body.password1
         });
         res.redirect('/');
-    }else{
+    } else {
         res.redirect('/signup');
     }
 });
@@ -41,6 +41,15 @@ router.post('/newpostit', function (req, res) {
         userId: 1
     });
     res.redirect('/');
+});
+
+
+router.get('/newproject', function (req, res) {
+    if (req.session.isconnect === "connect") {
+        res.render('newproject');
+    } else {
+        res.redirect('/');
+    }
 });
 
 
