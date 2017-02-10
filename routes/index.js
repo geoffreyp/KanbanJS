@@ -46,7 +46,9 @@ router.post('/newpostit', function (req, res) {
 
 router.get('/newproject', function (req, res) {
     if (req.session.isconnect === "connect") {
-        res.render('newproject');
+        models.user.findAll().then(function (users) {
+            res.render('newproject',{users:users});
+        });
     } else {
         res.redirect('/');
     }
