@@ -17,7 +17,8 @@ module.exports = function (sequelize, DataTypes) {
                 Project.belongsTo(models.user, {
                     foreignKey: {
                         allowNull: false
-                    }
+                    },
+                    as:"author"
                 })
             }
         }

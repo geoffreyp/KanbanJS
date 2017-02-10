@@ -54,6 +54,14 @@ router.get('/newproject', function (req, res) {
     }
 });
 
+router.post('/newproject', function (req, res) {
+    models.project.create({
+        title: req.body.project['name'],
+        authorId: req.body.project['author']
+    });
+    res.redirect('/');
+});
+
 
 router.post('/connection', function (req, res) {
     models.user.findAll({where: {name: req.body.login, password: req.body.password}}).then(function (user) {
