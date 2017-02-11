@@ -24,6 +24,7 @@ module.exports = function (sequelize, DataTypes) {
             associate: function (models) {
                 User.belongsToMany(models.project, {
                     foreignKey: "userId",
+                    otherKey: 'projectId',
                     through:"userProject"
                 })
             }
