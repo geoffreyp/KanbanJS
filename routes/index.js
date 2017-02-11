@@ -4,11 +4,20 @@ var models = require('../models');
 
 router.get('/', function (req, res) {
     if (req.session.isconnect === "connect") {
-        models.postit.findAll({limit: 10}).then(function (postits) {
-            console.log();
-            res.render('index', {
-                posts: postits
-            })
+
+        models.user.findAll({where: {id: req.session.idUser}}).then(function (user) {
+            user[0].getProjects().then(function (project) {
+
+                if(project.length > 0){
+                    models.postit.findAll().then(function (postits) {
+                        res.render('index', {
+                            posts: postits
+                        })
+                    });
+                }else {
+                    res.render('no-project-detected');
+                }
+            });
         });
     } else {
         res.render('login');
@@ -58,6 +67,10 @@ router.post('/newproject', function (req, res) {
     models.project.create({
         title: req.body.project['name'],
         authorId: req.body.project['author']
+    }).then(function (project) {
+        models.user.findAll({where: {id: req.session.idUser}}).then(function (user) {
+            user[0].addProject(project);
+        });
     });
     res.redirect('/');
 });
@@ -67,6 +80,7 @@ router.post('/connection', function (req, res) {
     models.user.findAll({where: {name: req.body.login, password: req.body.password}}).then(function (user) {
         if (user.length > 0) {
             req.session.isconnect = "connect";
+            req.session.idUser = user[0].id;
         } else {
             req.session.isconnect = "bad_login";
         }
