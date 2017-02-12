@@ -52,6 +52,28 @@ router.post('/newpostit', function (req, res) {
     res.redirect('/');
 });
 
+router.get('/joinproject', function (req, res) {
+    if (req.session.isconnect === "connect") {
+        models.project.findAll().then(function (projects) {
+            res.render('joinproject',{projects:projects});
+        });
+    } else {
+        res.redirect('/');
+    }
+});
+
+router.post('/joinproject', function (req, res) {
+    models.user.findAll({where: {id: req.session.idUser}}).then(function (user) {
+
+        models.project.findAll({where: {id: req.body.project}}).then(function (projects) {
+            user[0].addProject(projects[0]);
+        }).then(function () {
+            res.redirect('/');
+        });
+
+
+    });
+});
 
 router.get('/newproject', function (req, res) {
     if (req.session.isconnect === "connect") {
