@@ -11,20 +11,24 @@ module.exports = function (sequelize, DataTypes) {
             type: DataTypes.STRING,
             allowNull: false
         }
-    },{
+    }, {
         classMethods: {
             associate: function (models) {
                 Project.belongsTo(models.user, {
                     foreignKey: {
                         allowNull: false
                     },
-                    as:"author"
+                    as: "author"
                 });
                 Project.belongsToMany(models.user, {
                     foreignKey: "projectId",
                     otherKey: 'userId',
-                    through:"userProject"
-                })
+                    through: "userProject"
+                });
+                Project.hasMany(models.postit, {
+                    foreignKey: {allowNull: false}
+                });
+
             }
         }
     });
