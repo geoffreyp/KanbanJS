@@ -19,6 +19,16 @@ module.exports = function (sequelize, DataTypes) {
             type: DataTypes.STRING,
             allowNull: true
         }
+    },{
+        classMethods: {
+            associate: function (models) {
+                User.belongsToMany(models.project, {
+                    foreignKey: "userId",
+                    otherKey: 'projectId',
+                    through:"userProject"
+                })
+            }
+        }
     });
     return User;
 };

@@ -99,7 +99,7 @@ h2 {
 /*
     NAV
 */
-.nav-right {
+.nav-right, .nav li select {
     margin-top: 8px;
 }
 
@@ -110,3 +110,8 @@ h2 {
 .button-sigup, .button-go-to-sigup{color: #5f5f5f;font-size: 20px;margin-left: 10px;}
 .button-login,.button-sigup {margin: auto;width: 25%;display: block;float: none;font-size: 20px}
 .button-sigup{width: 80%;color: white}
+
+/*
+    NEW PROJECT
+ */
+.label-new-project{width: 100px;}

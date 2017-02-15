@@ -43,5 +43,13 @@
             jQuery('.back-add-postit').fadeOut();
             jQuery('#login-modal').fadeOut();
         });
+
+        /*
+        SELECT A PROJECT TO LOAD POSTIT
+         */
+
+        jQuery('#select-project').on('change',function () {
+            this.form.submit()
+        });
     });
 </script>

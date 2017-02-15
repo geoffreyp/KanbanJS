@@ -1,0 +1,52 @@
+<% include partials/header.ejs %>
+
+<body>
+<div class="container-fluid">
+    <div class="row-fluid">
+        <div class="col-md-offset-4 col-md-4" id="box">
+            <h2>Add a new project</h2>
+
+            <hr>
+
+            <form class="form-horizontal" action="/newproject" method="post" id="newproject_form">
+                <fieldset>
+                    <div class="form-group">
+                        <div class="col-md-12">
+                            <div class="input-group">
+                                <label class="input-group-addon"><i class="glyphicon glyphicon-tags label-new-project"> Title</i></label>
+                                <input name="project[name]" placeholder="Name of the project" class="form-control" type="text" required>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-md-12">
+                            <div class="input-group">
+                                <label class="input-group-addon"><i class="glyphicon glyphicon-user label-new-project"> Author</i></label>
+                                <select name="project[author]" id="project_author" class="form-control">
+                                    <% users.forEach(function(user){ %>
+                                    <option value="<%= user.id %>"><%= user.name %></option>
+                                    <% }); %>
+
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-md-6">
+                            <a href="/" type="submit" class="btn btn-md btn-warning button-sigup">Return</a>
+                        </div>
+                        <div class="col-md-6">
+                            <button type="submit" class="btn btn-md btn-success button-sigup">Add project</button>
+                        </div>
+                    </div>
+
+                </fieldset>
+            </form>
+
+        </div>
+    </div>
+</div>
+</body>
+</html>
