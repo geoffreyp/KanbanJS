@@ -79,6 +79,12 @@ router.post('/joinproject', function (req, res) {
     });
 });
 
+
+router.post('/loadproject', function (req, res) {
+    req.session.idProject = req.body.selectproject;
+    res.redirect('/');
+});
+
 router.get('/newproject', function (req, res) {
     if (req.session.isconnect === "connect") {
         models.user.findAll().then(function (users) {

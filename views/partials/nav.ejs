@@ -12,9 +12,18 @@
             <a class="navbar-brand" href="#">KANBAN JS</a>
         </div>
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
             <ul class="nav navbar-nav">
                 <li>
-                    <a href="#">Home</a>
+                    <form method="post" action="/loadproject" id="form-project">
+                        <select class="form-control" name="selectproject" id="select-project">
+                            <option value="0" id="select-project-0" selected>Select a project to load...</option>
+                            <% projects.forEach(function(project){ %>
+                            <option value="<%= project.id %>"
+                                    id="select-project-<%= project.id %>"><%= project.title %></option>
+                            <% }); %>
+                        </select>
+                    </form>
                 </li>
                 <li>
                     <a href="#" class="button-new-postit" data-toggle="modal" data-target="#login-modal"> New Postit</a>
