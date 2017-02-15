@@ -9,10 +9,12 @@ router.get('/', function (req, res) {
             user[0].getProjects().then(function (project) {
 
                 if(project.length > 0){
-                    models.postit.findAll().then(function (postits) {
-                        res.render('index', {
-                            posts: postits
-                        })
+                    models.postit.findAll({where: {projectId: req.session.idProject}}).then(function (postits) {
+                        return postits;
+                    }).then(function (postits) {
+                        models.project.findAll().then(function (projects) {
+                            res.render('index',{projects:projects, posts: postits});
+                        });
                     });
                 }else {
                     res.render('no-project-detected');
@@ -47,7 +49,9 @@ router.post('/newpostit', function (req, res) {
     models.postit.create({
         title: req.body.postit['title'],
         content: req.body.postit['content'],
-        userId: 1
+        userId: 1,
+        type:"backlog",
+        projectId:req.body.postit['project']
     });
     res.redirect('/');
 });
@@ -103,6 +107,7 @@ router.post('/connection', function (req, res) {
         if (user.length > 0) {
             req.session.isconnect = "connect";
             req.session.idUser = user[0].id;
+            req.session.idProject = 0; // TODO : update this value
         } else {
             req.session.isconnect = "bad_login";
         }

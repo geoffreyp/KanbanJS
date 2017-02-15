@@ -25,6 +25,17 @@
                         </div>
 
                         <div class="form-group">
+                            <label class="col-md-8 col-md-offset-2" for="form-add-postit-project">Project</label>
+                            <div class="col-md-8 col-md-offset-2">
+                                <select class="form-control" id="form-add-postit-project" name="postit[project]">
+                                    <% projects.forEach(function(project){ %>
+                                    <option value="<%= project.id %>"><%= project.title %></option>
+                                    <% }); %>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
                             <label class="col-md-8 col-md-offset-2" for="form-add-postit-valid"></label>
                             <div class="col-md-8 col-md-offset-2">
                                 <button id="form-add-postit-valid" name="form-add-postit-valid" class="btn btn-success">Create</button>
