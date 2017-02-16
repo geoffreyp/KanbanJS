@@ -1,5 +1,8 @@
 # Kanban JS
 
+## Features before the release 1.0
+ [See the github board](https://github.com/geoffreyp/KanbanJS/projects/1) and the [github milestone](https://github.com/geoffreyp/KanbanJS/milestones), don't hesitate to add issues if you want a new feature before the release 1.0.
+
 ## How to install KanbanJS ?
 ### Get the project :
 
@@ -18,7 +21,7 @@ Create config/config.json with correct database value:
 {
   "development": {
     "username": "root",
-    "password": "null",
+    "password": null,
     "database": "database_dev",
     "host": "127.0.0.1",
     "dialect": "mysql"
