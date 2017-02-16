@@ -3,6 +3,8 @@
 ## Features before the release 1.0
  [See the github project board](https://github.com/geoffreyp/KanbanJS/projects/1) and the [github milestone](https://github.com/geoffreyp/KanbanJS/milestones), don't hesitate to add issues if you want a new feature before the release 1.0.
 
+***
+
 ## How to install KanbanJS ?
 ### Get the project :
 
@@ -50,3 +52,7 @@ SQL dialect (mysql, postgreSQL, SQLite, mongodb, ...).
 ``` npm start ```
 
 The first time, sequelize create all tables with their relations.
+
+***
+## Databases tested
+  - Mysql
