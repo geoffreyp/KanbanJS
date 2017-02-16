@@ -5,7 +5,8 @@
   "scripts": {
     "start": "node ./bin/www",
     "snyk-protect": "snyk protect",
-    "prepublish": "npm run snyk-protect"
+    "prepublish": "npm run snyk-protect",
+    "test": "mocha"
   },
   "dependencies": {
     "body-parser": "~1.15.1",
@@ -22,5 +23,9 @@
     "socket.io": "^1.7.2",
     "snyk": "^1.25.0"
   },
-  "snyk": true
+  "snyk": true,
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "chai-http": "^3.0.0"
+  }
 }
