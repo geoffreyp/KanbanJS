@@ -1,4 +1,5 @@
-# Kanban JS
+[![Known Vulnerabilities](https://snyk.io/test/github/geoffreyp/kanbanjs/badge.svg)](https://snyk.io/test/github/geoffreyp/kanbanjs)
+# Kanban JS 
 
 ## Features before the release 1.0
  [See the github project board](https://github.com/geoffreyp/KanbanJS/projects/1) and the [github milestone](https://github.com/geoffreyp/KanbanJS/milestones), don't hesitate to add issues if you want a new feature before the release 1.0.
