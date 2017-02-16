@@ -6,7 +6,7 @@
     "start": "node ./bin/www",
     "snyk-protect": "snyk protect",
     "prepublish": "npm run snyk-protect",
-    "test": "mocha"
+    "test": "mocha && snyk test"
   },
   "dependencies": {
     "body-parser": "~1.15.1",
