@@ -13,11 +13,14 @@ router.get('/', function (req, res) {
                         return postits;
                     }).then(function (postits) {
                         models.project.findAll().then(function (projects) {
+                            console.log(projects);
                             res.render('index',{projects:projects, posts: postits});
                         });
                     });
                 }else {
-                    res.render('no-project-detected');
+                    models.project.findAll().then(function (projects) {
+                        res.render('no-project-detected',{projects:projects});
+                    });
                 }
             });
         });
