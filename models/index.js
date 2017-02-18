@@ -22,7 +22,6 @@ fs
   .forEach(function(file) {
     var model = sequelize['import'](path.join(__dirname, file));
     db[model.name] = model;
-    console.log(model);
   });
 
 Object.keys(db).forEach(function(modelName) {
