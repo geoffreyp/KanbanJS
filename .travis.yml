@@ -5,9 +5,12 @@ node_js:
   - '6'
   - '7'
 
+services:
+  - mysql
+
 before_script:
   - npm install -g snyk
-
+  - mysql -e "create database IF NOT EXISTS kanbanjs_test;" -uroot
 notifications:
   email:
     - notifications@pruvost.xyz
