@@ -3,7 +3,6 @@ process.env.NODE_ENV = 'test';
 var chai = require('chai');
 var chaiHttp = require('chai-http');
 var models = require('../models');
-models.sequelize.sync();
 
 var ctrlProject = require('../controllers/project.ctrl');
 var ctrlUser = require('../controllers/user.ctrl');
@@ -40,7 +39,7 @@ describe('Project controller', function () {
     });
 
 
-    beforeEach(function (done) {
+    afterEach(function (done) {
         models.postit.destroy({where: {}});
         models.project.destroy({where: {}});
         models.user.destroy({where: {}});

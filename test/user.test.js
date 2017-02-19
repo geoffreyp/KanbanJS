@@ -3,7 +3,6 @@ process.env.NODE_ENV = 'test';
 var chai = require('chai');
 var chaiHttp = require('chai-http');
 var models = require('../models');
-models.sequelize.sync();
 
 var ctrl = require('../controllers/user.ctrl');
 var should = chai.should();
