@@ -4,9 +4,11 @@
   "private": true,
   "scripts": {
     "start": "node ./bin/www",
+    "snyk-auth":"snyk auth $SNYK_TOKEN",
+    "snyk-monitor": "snyk monitor",
     "snyk-protect": "snyk protect",
     "prepublish": "npm run snyk-protect",
-    "test": "./node_modules/mocha/bin/mocha && snyk test"
+    "test": "./node_modules/mocha/bin/mocha && npm run snyk-auth && snyk test && npm run snyk-monitor"
   },
   "dependencies": {
     "body-parser": "~1.15.1",
