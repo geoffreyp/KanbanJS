@@ -7,8 +7,9 @@
     "snyk-auth":"snyk auth $SNYK_TOKEN",
     "snyk-monitor": "snyk monitor",
     "snyk-protect": "snyk protect",
+    "create-tables": "node ./bin/create_tables",
     "prepublish": "npm run snyk-protect",
-    "test": "./node_modules/mocha/bin/mocha && npm run snyk-auth && snyk test && npm run snyk-monitor"
+    "test": "npm run create-tables && ./node_modules/mocha/bin/mocha && npm run snyk-auth && snyk test && npm run snyk-monitor"
   },
   "dependencies": {
     "body-parser": "~1.15.1",
