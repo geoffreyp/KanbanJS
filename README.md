@@ -1,4 +1,6 @@
-[![Known Vulnerabilities](https://snyk.io/test/github/geoffreyp/kanbanjs/badge.svg)](https://snyk.io/test/github/geoffreyp/kanbanjs) [![Build Status](https://travis-ci.org/geoffreyp/KanbanJS.svg?branch=master)](https://travis-ci.org/geoffreyp/KanbanJS)
+[![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](http://www.gnu.org/licenses/gpl-3.0)
+[![Build Status](https://travis-ci.org/geoffreyp/KanbanJS.svg?branch=master)](https://travis-ci.org/geoffreyp/KanbanJS)
+[![Known Vulnerabilities](https://snyk.io/test/github/geoffreyp/kanbanjs/badge.svg)](https://snyk.io/test/github/geoffreyp/kanbanjs) 
 # Kanban JS 
 
 ## Features before the release 1.0
