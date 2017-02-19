@@ -7,6 +7,7 @@ models.sequelize.sync();
 
 var ctrlProject = require('../controllers/project.ctrl');
 var ctrlUser = require('../controllers/user.ctrl');
+var ctrlPostit= require('../controllers/postit.ctrl');
 var should = chai.should();
 
 chai.use(chaiHttp);
@@ -22,7 +23,16 @@ describe('Project controller', function () {
                 project.title.should.equal('project test');
                 project.should.have.property('updatedAt');
                 project.should.have.property('createdAt');
-                done();
+                return project;
+            }).then(function (project) {
+                ctrlPostit.create("postit1",user.id,"content postit","backlog",project.id).then(function (postit) {
+                    postit.should.have.property('updatedAt');
+                    postit.should.have.property('createdAt');
+                    postit.title.should.equal('postit1');
+                    postit.content.should.equal('content postit');
+                    postit.type.should.equal('backlog');
+                    done();
+                });
             });
 
         });
