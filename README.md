@@ -1,4 +1,4 @@
-[![Known Vulnerabilities](https://snyk.io/test/github/geoffreyp/kanbanjs/badge.svg)](https://snyk.io/test/github/geoffreyp/kanbanjs)
+[![Known Vulnerabilities](https://snyk.io/test/github/geoffreyp/kanbanjs/badge.svg)](https://snyk.io/test/github/geoffreyp/kanbanjs) [![Build Status](https://travis-ci.org/geoffreyp/KanbanJS.svg?branch=master)](https://travis-ci.org/geoffreyp/KanbanJS)
 # Kanban JS 
 
 ## Features before the release 1.0
