@@ -75,8 +75,15 @@ h2 {
 .postit-author{
     position: absolute;
     top: 11px;
-    right: 6px;
+    left: 6px;
     color: #5a2b49;
+}
+
+.close{
+    position: absolute;
+    top:-9px;
+    right: 6px;
+    font-size: 36px;
 }
 
 /*

@@ -2,6 +2,9 @@
     <div class="panel-heading">
         <h3 class="panel-title"><%= postit.dataValues.title; %></h3>
         <div class="postit-author">By <%= author; %></div>
+        <button type="button" class="close delete-postit" postit-id="<%= postit.dataValues.id; %>" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
     </div>
     <div class="panel-body post-it-container">
         <%= postit.dataValues.content; %>

@@ -11,7 +11,7 @@ module.exports = {
         });
     },
 
-    delete: function (name) {
-        return models.postit.destroy({where: {title:name}});
+    delete: function (id) {
+        return models.postit.destroy({where: {id:id}});
     }
 };

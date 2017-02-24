@@ -45,6 +45,14 @@
         });
 
         /*
+         DELETE POSTIT
+        */
+        jQuery('.delete-postit').click(function () {
+            socket.emit('delete_postit', jQuery(this).attr("postit-id"));
+            jQuery('#postit'+jQuery(this).attr("postit-id")).remove();
+        })
+
+        /*
         SELECT A PROJECT TO LOAD POSTIT
          */
 
