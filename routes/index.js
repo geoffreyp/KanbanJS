@@ -8,18 +8,36 @@ router.get('/', function (req, res) {
         models.user.findAll({where: {id: req.session.idUser}}).then(function (user) {
             user[0].getProjects().then(function (project) {
 
-                if(project.length > 0){
-                    models.postit.findAll({where: {projectId: req.session.idProject}}).then(function (postits) {
-                        return postits;
+                if (project.length > 0) {
+                    if(req.session.idProject == 0) {
+                        req.session.idProject = project[0].id;
+                    }
+
+                    models.postit.findAll({
+                        where: {projectId:  req.session.idProject}
                     }).then(function (postits) {
-                        models.project.findAll().then(function (projects) {
-                            console.log(projects);
-                            res.render('index',{projects:projects, posts: postits});
-                        });
-                    });
-                }else {
+
+                        if(postits.length > 0) {
+                            postits[0].getUser().then(function (user) {
+                                return {content: postits, author: user};
+                            }).then(function (postits) {
+                                models.project.findAll().then(function (projects) {
+                                    res.render('index', {
+                                        projects: projects,
+                                        posts: postits.content,
+                                        author: postits.author.dataValues.name
+                                    });
+                                });
+                            });
+                        }else {
+                            models.project.findAll().then(function (projects) {
+                                res.render('no-postit-detected', {projects: projects});
+                            });
+                        }
+                    })
+                } else {
                     models.project.findAll().then(function (projects) {
-                        res.render('no-project-detected',{projects:projects});
+                        res.render('no-project-detected', {projects: projects});
                     });
                 }
             });
@@ -53,8 +71,8 @@ router.post('/newpostit', function (req, res) {
         title: req.body.postit['title'],
         content: req.body.postit['content'],
         userId: 1,
-        type:"backlog",
-        projectId:req.body.postit['project']
+        type: "backlog",
+        projectId: req.body.postit['project']
     });
     res.redirect('/');
 });
@@ -62,7 +80,7 @@ router.post('/newpostit', function (req, res) {
 router.get('/joinproject', function (req, res) {
     if (req.session.isconnect === "connect") {
         models.project.findAll().then(function (projects) {
-            res.render('joinproject',{projects:projects});
+            res.render('joinproject', {projects: projects});
         });
     } else {
         res.redirect('/');
@@ -91,7 +109,7 @@ router.post('/loadproject', function (req, res) {
 router.get('/newproject', function (req, res) {
     if (req.session.isconnect === "connect") {
         models.user.findAll().then(function (users) {
-            res.render('newproject',{users:users});
+            res.render('newproject', {users: users});
         });
     } else {
         res.redirect('/');

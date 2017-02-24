@@ -69,6 +69,15 @@ h2 {
     transition: opacity 0.4s ease-in-out;
     text-align: center;
 }
+.panel-heading{
+    position: relative;
+}
+.postit-author{
+    position: absolute;
+    top: 11px;
+    right: 6px;
+    color: #5a2b49;
+}
 
 /*
     Lightbox
