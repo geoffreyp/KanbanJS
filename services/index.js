@@ -1,4 +1,5 @@
 var models = require('../models');
+var postitCtrl = require('../controllers/postit.ctrl');
 
 module.exports = function (server) {
     var io = require('socket.io')(server);
@@ -13,7 +14,11 @@ module.exports = function (server) {
                     console.log("postit updated");
                 })
             });
-            console.log(data);
+
+        });
+
+        client.on('delete_postit', function(data) {
+           postitCtrl.delete(data);
         });
 
     });
