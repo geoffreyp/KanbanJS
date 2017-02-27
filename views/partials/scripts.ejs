@@ -59,5 +59,12 @@
         jQuery('#select-project').on('change',function () {
             this.form.submit()
         });
+
+        /*
+        RECEIVE INFOS
+         */
+        socket.on('update_user_column', function (data) {
+            jQuery('#root_'+data.target).after(jQuery('#postit'+data.id));
+        });
     });
 </script>

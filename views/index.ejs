@@ -11,6 +11,7 @@
             <div class="panel panel-primary">
                 <div class="header-column panel-heading">Backlog</div>
                 <div id="backlog" class="panel-body column">
+                    <div id="root_backlog"></div>
                     <%
                     posts.forEach(function(postit){
                     if (postit.dataValues.type == "backlog"){
@@ -28,6 +29,7 @@
             <div class="panel panel-primary">
                 <div class="header-column panel-heading">todo</div>
                 <div id="todo" class="panel-body column">
+                    <div id="root_todo"></div>
                     <%
                     posts.forEach(function(postit){
                     if (postit.dataValues.type == "todo"){
@@ -45,6 +47,7 @@
             <div class="panel panel-primary">
                 <div class="panel-heading header-column ">doing</div>
                 <div id="doing" class="panel-body column">
+                    <div id="root_doing"></div>
                     <%
                     posts.forEach(function(postit){
                     if (postit.dataValues.type == "doing"){
@@ -62,6 +65,7 @@
             <div class="panel panel-primary">
                 <div class="header-column panel-heading">Done</div>
                 <div id="done" class="panel-body column">
+                    <div id="root_done"></div>
                     <%
                     posts.forEach(function(postit){
                     if (postit.dataValues.type == "done"){

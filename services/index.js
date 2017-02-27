@@ -12,6 +12,7 @@ module.exports = function (server) {
                 p.type = data.target;
                 p.save().then(function () {
                     console.log("postit updated");
+                    client.broadcast.emit('update_user_column', {id:data.id, target:data.target});
                 })
             });
 
