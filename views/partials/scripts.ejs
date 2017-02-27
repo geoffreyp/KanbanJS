@@ -66,5 +66,8 @@
         socket.on('update_user_column', function (data) {
             jQuery('#root_'+data.target).after(jQuery('#postit'+data.id));
         });
+        socket.on('delete_postit_interaction', function (data) {
+            jQuery('#postit'+data.id).remove();
+        });
     });
 </script>

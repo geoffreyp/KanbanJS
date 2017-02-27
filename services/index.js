@@ -19,7 +19,9 @@ module.exports = function (server) {
         });
 
         client.on('delete_postit', function(data) {
-           postitCtrl.delete(data);
+           postitCtrl.delete(data).then(function () {
+               client.broadcast.emit('delete_postit_interaction', {id:data});
+           });
         });
 
     });
