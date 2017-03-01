@@ -6,7 +6,7 @@
     jQuery(document).ready(function () {
         /*
          SOCKET IO
-        */
+         */
         var socket = io.connect('http://localhost:3000');
 
 
@@ -21,7 +21,11 @@
         ]);
 
         drake.on('drop', function (el, target, source) {
-            socket.emit('change_column', {id:jQuery(el).attr("id").split('postit')[1],source:jQuery(source).attr("id"), target:jQuery(target).attr("id")});
+            socket.emit('change_column', {
+                id: jQuery(el).attr("id").split('postit')[1],
+                source: jQuery(source).attr("id"),
+                target: jQuery(target).attr("id")
+            });
         });
 
 
@@ -34,6 +38,11 @@
         });
 
         jQuery('#form-add-postit-cancel, #form-add-postit-valid').click(function () {
+            socket.emit('new_postit_interaction', {
+                title: jQuery('#form-add-postit-title').val(),
+                content: jQuery('#form-add-postit-content').val(),
+                projectId: jQuery('#form-add-postit-project').val()
+            });
             jQuery('.back-add-postit').fadeOut();
             jQuery('#login-modal').fadeOut();
         });
@@ -46,28 +55,31 @@
 
         /*
          DELETE POSTIT
-        */
+         */
         jQuery('.delete-postit').click(function () {
             socket.emit('delete_postit', jQuery(this).attr("postit-id"));
-            jQuery('#postit'+jQuery(this).attr("postit-id")).remove();
+            jQuery('#postit' + jQuery(this).attr("postit-id")).remove();
         })
 
         /*
-        SELECT A PROJECT TO LOAD POSTIT
+         SELECT A PROJECT TO LOAD POSTIT
          */
 
-        jQuery('#select-project').on('change',function () {
+        jQuery('#select-project').on('change', function () {
             this.form.submit()
         });
 
         /*
-        RECEIVE INFOS
+         RECEIVE INFOS
          */
         socket.on('update_user_column', function (data) {
-            jQuery('#root_'+data.target).after(jQuery('#postit'+data.id));
+            jQuery('#root_' + data.target).after(jQuery('#postit' + data.id));
         });
         socket.on('delete_postit_interaction', function (data) {
-            jQuery('#postit'+data.id).remove();
+            jQuery('#postit' + data.id).remove();
+        });
+        socket.on('new_postit_from_other_user', function (data) {
+           alert(data.html);
         });
     });
 </script>

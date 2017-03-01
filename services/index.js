@@ -24,5 +24,10 @@ module.exports = function (server) {
            });
         });
 
+        client.on('new_postit_interaction', function(data) {
+           console.log(data);
+            client.broadcast.emit('new_postit_from_other_user', {html:"TODO : html of a future new postit"});
+        });
+
     });
 };
