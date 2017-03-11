@@ -12,11 +12,11 @@
     "test": "npm run create-tables && ./node_modules/mocha/bin/mocha && npm run snyk-auth && snyk test && npm run snyk-monitor"
   },
   "dependencies": {
-    "body-parser": "~1.15.1",
+    "body-parser": "~1.17.1",
     "cookie-parser": "~1.4.3",
     "debug": "~2.2.0",
     "ejs": "~2.5.5",
-    "express": "~4.14.0",
+    "express": "~4.15.2",
     "express-session": "^1.15.0",
     "morgan": "~1.7.0",
     "mysql": "^2.12.0",
