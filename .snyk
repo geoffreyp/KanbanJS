@@ -16,6 +16,19 @@ ignore:
     - express > qs:
         reason: None given
         expires: '2017-03-31T12:53:07.802Z'
+  'npm:ms:20170412':
+    - morgan > debug > ms:
+        reason: None given
+        expires: '2017-06-17T06:49:08.572Z'
+    - socket.io > socket.io-adapter > debug > ms:
+        reason: None given
+        expires: '2017-06-17T06:49:08.573Z'
+    - socket.io > socket.io-client > debug > ms:
+        reason: None given
+        expires: '2017-06-17T06:49:08.573Z'
+    - socket.io > socket.io-client > engine.io-client > debug > ms:
+        reason: None given
+        expires: '2017-06-17T06:49:08.573Z'
 # patches apply the minimum changes required to fix a vulnerability
 patch:
   'npm:minimatch:20160620':
