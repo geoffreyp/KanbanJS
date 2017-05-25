@@ -1,5 +1,5 @@
 # Snyk (https://snyk.io) policy file, patches or ignores known vulnerabilities.
-version: v1.7.0
+version: v1.7.1
 # ignores vulnerabilities until expiry date; change duration by modifying expiry date
 ignore:
   'npm:ws:20160920':
@@ -40,3 +40,8 @@ patch:
         patched: '2017-02-16T19:40:14.255Z'
     - sequelize-cli > gulp > vinyl-fs > glob-watcher > gaze > globule > glob > minimatch:
         patched: '2017-02-16T19:40:14.255Z'
+  'npm:ms:20170412':
+    - socket.io > socket.io-adapter > debug > ms:
+        patched: '2017-05-25T07:14:08.566Z'
+    - socket.io > socket.io-client > debug > ms:
+        patched: '2017-05-25T07:14:08.566Z'
