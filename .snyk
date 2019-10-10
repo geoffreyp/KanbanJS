@@ -1,5 +1,5 @@
 # Snyk (https://snyk.io) policy file, patches or ignores known vulnerabilities.
-version: v1.7.1
+version: v1.13.5
 # ignores vulnerabilities until expiry date; change duration by modifying expiry date
 ignore:
   'npm:ws:20160920':
@@ -45,3 +45,8 @@ patch:
         patched: '2017-05-25T07:14:08.566Z'
     - socket.io > socket.io-client > debug > ms:
         patched: '2017-05-25T07:14:08.566Z'
+  SNYK-JS-HTTPSPROXYAGENT-469131:
+    - snyk > proxy-agent > https-proxy-agent:
+        patched: '2019-10-10T04:10:58.492Z'
+    - snyk > proxy-agent > pac-proxy-agent > https-proxy-agent:
+        patched: '2019-10-10T04:10:58.492Z'
